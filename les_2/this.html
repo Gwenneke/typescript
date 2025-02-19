@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <h2>Klik op een item</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <p id="resultaat">De tekst van het item komt hier...</p>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $resultaat = $('resultaat');
+        $li = $('li');
+
+        $li.click(function(){
+            $resultaat.text(($this).text());
+        })
+
+        $li.mouseenter(function(){
+            $(this).css("background-color", "yellow");
+
+        })
+        $li.mouseout(function(){
+            $(this).css("background-color", "");
+            
+        })
+
+      });
+    </script>
+
+  </body>
+</html>
