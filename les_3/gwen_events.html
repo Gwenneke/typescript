@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .kader {
+            border: 9px solid red;
+        }
+        .key {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div>
+        <div>
+            <label for="naam">Naam:</label>
+            <input type="text" id="naam" class="invulveld">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="achternaam">Naam:</label>
+             <input type="text" id="achternaam" class="invulveld">
+        </div> 
+        <br>
+        <br>
+        <div id="key">
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+            $("invulveld").focus()(function (){
+                $(this).addClass("#kader")
+            })
+            $("invulveld").blur(function (){
+                $(this).removeClass("#kader")
+            })
+       
+      });
+    </script>
+
+  </body>
+</html>

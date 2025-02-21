@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div {
+            margin:10px;
+            padding:12px;
+            border:2px solid #666;
+            width:60px;
+            cursor: pointer;
+        }
+        .blauw {
+            background-color: blue;
+        }
+        .groen {
+            background-color: green;
+        }
+        .rood {
+            background-color: red;
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="blauw">Blauw</div>
+    <div class="groen">Groen</div>
+    <div class="rood">Rood</div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('div').on ('click', function (event) {
+            console.log (`Event type is: ${event.type} `)
+            console.log (`Target is: ${event.target}` ) 
+            console.log (`Target html is : ${$(this).text ()}` )
+        });
+
+        $('div')
+            .on('mouseover', function(){
+                $(this).css("width", "100px" );
+
+            })
+
+            .on('mouseleave', function(){
+                $(this).css("width", "60px" );
+
+            });
+
+      });
+    </script>
+
+  </body>
+</html>
