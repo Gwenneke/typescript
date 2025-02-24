@@ -39,13 +39,37 @@
 
     <script>
       $(document).ready(function () {
-            $("invulveld").focus()(function (){
-                $(this).addClass("#kader")
-            })
-            $("invulveld").blur(function (){
-                $(this).removeClass("#kader")
-            })
-       
+          let $invulveld = $('.invulveld');
+          let gebeurtenissen = []
+
+          $invulveld.focus (function (){
+            $(this).addClass("kader")
+          })
+
+          $invulveld.blur(function (){
+            $(this).removeClass("kader")
+          })
+
+          $(document).keydown(function(event){
+            let pos_toets = "";
+
+            if (event.which === 38) {
+              pos_toets = "Key omhoog";
+            } else if (event.which === 40) {
+              pos_toets = "Key Omlaag";
+            }else if (event.which === 37) {
+              pos_toets = "Key Links";
+            }else if (event.which === 39) {
+              pos_toets = "Key Rechts";
+            }else {
+              return;
+            }
+
+           gebeurtenissen.push(pos_toets);
+          $("#key").html(gebeurtenissen.join( ", <br>"));
+           
+          })
+          
       });
     </script>
 

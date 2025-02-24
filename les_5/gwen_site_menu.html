@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div#menu{
+        width:150px;
+        left:-180px;
+        position: absolute;
+        z-index: 100;
+        }
+        div#menu ul li{
+            margin-bottom: 1px;   
+            position: relative;
+            float : left; 
+        }
+        div#menu ul#unorderedList li a{
+            width: 150px;
+            height: 22px;
+            background-color: #00293E;
+            /*color: #ffffff;*/
+            text-decoration: none;
+            display: block;
+            padding: 7px 10px 0 0;
+            text-align: right;
+            font-weight: bold;
+            cursor: pointer;
+            cursor: hand;
+        }
+    
+        #inhoud{
+            left:50px;
+            position: absolute;
+            width:500px;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container" id="container">
+        <div class="menu" id="menu">
+            <ul class="unorderedList" id="unorderedList">
+                <li><a href="#">Menu 1</a></li>
+                <li><a href="#">Menu 2</a></li>
+                <li><a href="#">Menu 3</a></li>
+                <li><a href="#">Menu 4</a></li>
+                <li><a href="#">Menu 5</a></li>
+                <li><a href="#">Menu 6</a></li>
+            </ul>
+
+        </div>
+        <div class="inhoud" id="inhoud">
+            <div>
+                <h1>
+                    Inhoud 1
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Ipsa animi voluptatem et, ab sequi dignissimos delectus nisi quo incidunt! 
+                    Ipsa sapiente at beatae aliquam magni excepturi dolor animi rem culpa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sint vero quod minus sequi illo perferendis, sed molestias ratione ullam dolores sapiente. 
+                    Quidem dolorem reprehenderit officiis cupiditate ex alias maiores dicta!
+                </p>
+            </div>
+            <div>
+                <h1>
+                    Inhoud 2
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Ipsa animi voluptatem et, ab sequi dignissimos delectus nisi quo incidunt! 
+                    Ipsa sapiente at beatae aliquam magni excepturi dolor animi rem culpa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sint vero quod minus sequi illo perferendis, sed molestias ratione ullam dolores sapiente. 
+                    Quidem dolorem reprehenderit officiis cupiditate ex alias maiores dicta!
+                </p>
+            </div>
+            <div>
+                <h1>
+                    Inhoud 3
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Ipsa animi voluptatem et, ab sequi dignissimos delectus nisi quo incidunt! 
+                    Ipsa sapiente at beatae aliquam magni excepturi dolor animi rem culpa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sint vero quod minus sequi illo perferendis, sed molestias ratione ullam dolores sapiente. 
+                    Quidem dolorem reprehenderit officiis cupiditate ex alias maiores dicta!
+                </p>
+            </div>
+            <div>
+                <h1>
+                    Inhoud 4
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Ipsa animi voluptatem et, ab sequi dignissimos delectus nisi quo incidunt! 
+                    Ipsa sapiente at beatae aliquam magni excepturi dolor animi rem culpa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sint vero quod minus sequi illo perferendis, sed molestias ratione ullam dolores sapiente. 
+                    Quidem dolorem reprehenderit officiis cupiditate ex alias maiores dicta!
+                </p>
+            </div>
+            <div>
+                <h1>
+                    Inhoud 5
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Ipsa animi voluptatem et, ab sequi dignissimos delectus nisi quo incidunt! 
+                    Ipsa sapiente at beatae aliquam magni excepturi dolor animi rem culpa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sint vero quod minus sequi illo perferendis, sed molestias ratione ullam dolores sapiente. 
+                    Quidem dolorem reprehenderit officiis cupiditate ex alias maiores dicta!
+                </p>
+            </div>
+            <div>
+                <h1>
+                    Inhoud 6
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Ipsa animi voluptatem et, ab sequi dignissimos delectus nisi quo incidunt! 
+                    Ipsa sapiente at beatae aliquam magni excepturi dolor animi rem culpa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sint vero quod minus sequi illo perferendis, sed molestias ratione ullam dolores sapiente. 
+                    Quidem dolorem reprehenderit officiis cupiditate ex alias maiores dicta!
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        let $container = $(".container");
+        let $menu = $("#menu");
+        let $menuItems = $("#menu li");
+        let $inhoudDelen = $("#inhoud > div")
+
+        $container.fadeIn(300);
+
+        $menu.hover(
+            function (){
+            $(this).stop().animate({left:"-50px"},300)     
+            },
+            function (){
+            $(this).stop().animate({left:"-180px"},300)     
+            })
+
+            $menuItems.first().addClass("activated");
+            $inhoudDelen.hide().first().show();
+
+            $menuItems.click(function(){
+                let index = $(this).index();
+
+                $menuItems.removeClass("activated").addClass("disactivated");
+                $(this).removeClass("disactivated").addClass("activated");
+
+                $inhoudDelen.slideUp().eq(index).slideDown();
+            })
+
+
+
+      });
+    </script>
+
+  </body>
+</html>
